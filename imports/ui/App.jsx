@@ -34,11 +34,28 @@ export default class App extends Component {
 		});
 	}
 
+	searchWiki(query) {
+		let search = document.getElementById("search").value;
+		if (search.length > 0){
+			this.callApi(search);
+		}
+	}
+
 	render() {
 		return (
 			<div className="container">
 			<h1>Wikipedia Search</h1>
+			<form onSubmit={this.searchWiki.bind(this)}>
+			<input
+				id="search"
+				className=""
+				type="text"
+				placeholder="Enter your search terms"
+				/>
+			</form>
+			<h2>History</h2>
+			<h2>Links</h2>
 			</div>
-			)
+		);
 	}
 }

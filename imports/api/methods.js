@@ -1,11 +1,11 @@
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
-let wikipedia = require("node-wikipedia");
-
-let query = "";
-
 if (Meteor.isServer){
+  let wikipedia = require("node-wikipedia");
+
+  let query = "";
+
   Meteor.methods({
     getPage(query) {
       console.log(query);
@@ -13,7 +13,6 @@ if (Meteor.isServer){
       });
     }
   });
-}
 
 
 wikipedia.page.data("Clifford_Brown", { content: true }, function(response) {
@@ -30,3 +29,4 @@ wikipedia.categories.tree(
     //nested data on the category page for all Phillies players
   }
 );
+}
