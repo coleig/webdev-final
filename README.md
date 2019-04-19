@@ -1,2 +1,2 @@
 # Wikipedia Search
-** 24 hour extension
+* 24 hour extension
