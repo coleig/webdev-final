@@ -2,21 +2,18 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
 if (Meteor.isServer){
-  let wikipedia = require("node-wikipedia");
-
-  let query = "";
+  import wikipedia from "node-wikipedia";
 
   Meteor.methods({
     getPage(query) {
       console.log(query);
       return new Promise((resolve, reject) => {
         wikipedia.page.data(query, {content: true}, resolve);
-        console.log(resolve);
       });
     }
   });
 
-
+}
 // wikipedia.page.data("Clifford_Brown", { content: true }, function(response) {
 //   // structured information on the page for Clifford Brown (wikilinks, references, categories, etc.)
 // });
@@ -31,4 +28,3 @@ if (Meteor.isServer){
 //     //nested data on the category page for all Phillies players
 //   }
 // );
-}

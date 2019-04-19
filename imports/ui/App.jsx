@@ -10,11 +10,12 @@ export default class App extends Component {
 		title: "",
 		content: "",
 		links: [],
+		history: [],
 		err: ""
 		}
 	}
 
-	callApi(query) {
+	makeaTheCall(query) {
 		Meteor.call("getPage", {query: query }, (err, res) => {
 			if (err) {
 				this.setState = {
@@ -37,12 +38,12 @@ export default class App extends Component {
 	searchWiki(query) {
 		let search = document.getElementById("search").value;
 		if (search.length > 0){
-			this.callApi(search);
+			this.makeaTheCall(search);
 		}
 	}
 
 	renderHistory() {
-		
+
 	}
 
 	renderLinks(){
