@@ -9,13 +9,13 @@ export default class App extends Component {
 	this.state = {
 		title: "",
 		content: "",
-		links: "",
+		links: [],
 		err: ""
 		}
 	}
 
 	callApi(query) {
-		Meteor.call("getPage", {query: query }, (err, data) => {
+		Meteor.call("getPage", {query: query }, (err, res) => {
 			if (err) {
 				this.setState = {
 					title: "",
@@ -41,20 +41,36 @@ export default class App extends Component {
 		}
 	}
 
+	renderHistory() {
+		
+	}
+
+	renderLinks(){
+		<span dangerouslySetInnerHTML={{__html: this.state.links["*"]}}></span>
+	}
+
+	renderContent(){
+		<span dangerouslySetInnerHTML={{__html: this.state.content["*"]}}></span>
+	}
+
 	render() {
 		return (
 			<div className="container">
 			<h1>Wikipedia Search</h1>
 			<form onSubmit={this.searchWiki.bind(this)}>
-			<input
-				id="search"
-				className=""
-				type="text"
-				placeholder="Enter your search terms"
+				<input
+					id="search"
+					className=""
+					type="text"
+					placeholder="Enter your search terms"
 				/>
 			</form>
 			<h2>History</h2>
+			<div className="container">{this.renderHistory()}</div>
 			<h2>Links</h2>
+			<div className="container">{this.renderLinks()}</div>
+			<h2>Content</h2>
+			<div className="container">{this.renderContent()}</div>
 			</div>
 		);
 	}
