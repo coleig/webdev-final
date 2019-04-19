@@ -5,13 +5,13 @@ body {
 
 .btn-dark {
     background-color: #996480!important;
-    border-color: #996480!important;
+    border-color: #fff!important;
     outline: 1px;
 }
 
 .btn-dark:hover {
-    background-color: #3B2934!important;
-    border-color: #3B2934!important;
+    background-color: #BABABA!important;
+    border-color: #fff!important;
     outline: 1px;
 }
 
