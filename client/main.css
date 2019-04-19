@@ -1,4 +1,30 @@
 body {
   padding: 10px;
-  font-family: sans-serif;
+  font-family: Roboto;
+}
+
+.btn-dark {
+    background-color: #996480!important;
+    border-color: #996480!important;
+    outline: 1px;
+}
+
+.btn-dark:hover {
+    background-color: #3B2934!important;
+    border-color: #3B2934!important;
+    outline: 1px;
+}
+
+h1, h2 {
+  font-family: 'Fondamento', sans-serif;
+}
+
+a {
+  color: #212529;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a:focus, a:hover {
+  color: #BABABA;
 }

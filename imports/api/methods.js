@@ -1,5 +1,5 @@
 import { Meteor } from "meteor/meteor";
-import { check } from "meteor/check";
+import { HTTP } from "meteor/http";
 
 if (Meteor.isServer){
   import wikipedia from "node-wikipedia";
@@ -12,7 +12,6 @@ if (Meteor.isServer){
       });
     }
   });
-
 }
 // wikipedia.page.data("Clifford_Brown", { content: true }, function(response) {
 //   // structured information on the page for Clifford Brown (wikilinks, references, categories, etc.)

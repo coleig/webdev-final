@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Meteor } from "meteor/meteor";
-import "../api/methods";
+import "../api/methods.js";
 
 export default class App extends Component {
 	constructor(props) {
@@ -12,21 +11,19 @@ export default class App extends Component {
 		links: [],
 		history: [],
 		err: ""
-		}
+		};
 	}
 
 	makeaTheCall(query) {
-		Meteor.call("getPage", {query: query }, (err, res) => {
+		Meteor.call("getPage", query, (err, res) => {
 			if (err) {
 				this.setState = {
-					title: "",
-					content: "",
-					links: "",
 					err: err
 				};
 				console.log(err);
 				return;
 			}
+			console.log("res: ", res.text);
 			this.setState({
 				title: res.title,
 				content: res.text,
@@ -36,22 +33,38 @@ export default class App extends Component {
 	}
 
 	searchWiki(query) {
+		query.preventDefault();
 		let search = document.getElementById("search").value;
 		if (search.length > 0){
 			this.makeaTheCall(search);
+			this.setState({ history: [...this.state.history, search]});
 		}
 	}
 
 	renderHistory() {
-
+		return this.state.history.map((p, i) => (
+			<button className="btn-dark" key={i} alt={p}>
+				{p}
+			</button>
+		));
 	}
 
 	renderLinks(){
-		<span dangerouslySetInnerHTML={{__html: this.state.links["*"]}}></span>
+		return this.state.links.map((p, i) => (
+			<button className="btn-dark" key={i} alt={p["*"]} onClick={p["*"]}>
+				{p["*"]}
+			</button>
+		));
 	}
 
 	renderContent(){
-		<span dangerouslySetInnerHTML={{__html: this.state.content["*"]}}></span>
+		return (
+			<span dangerouslySetInnerHTML={{__html: this.state.content["*"]}}></span>
+			);
+	}
+
+	onClick() {
+		// unfinished
 	}
 
 	render() {
