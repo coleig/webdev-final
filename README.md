@@ -15,4 +15,10 @@ meteor
 ```
 3. Open `http://localhost:3000` to see the project running!
 
-* This project was completed using the one hour extension.
+## Author Link
+[Cole Garbo](https://coleig.github.io/)
+
+## Class Link
+[CS-5610 Web Development Spring 2019](http://johnguerra.co/classes/webDevelopment_spring_2019/)
+
+* This project was completed using the one hour extension & is publishe dusing the MIT license. 
